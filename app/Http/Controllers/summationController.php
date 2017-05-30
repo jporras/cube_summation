@@ -1,12 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class summationController extends Controller
-{
-    //
+class summationController extends Controller{
+
 	protected $sum;
 	
 	public function index(){
@@ -32,13 +30,36 @@ class summationController extends Controller
 		return view('cube.summation')->with('sum',$sum);
 	}
 
-
-	public function createTest($n,$operation){
-		$cube = create_cube($n);
-		$sum = process_operation($operation, $cube);
+	private function createTest($n,$operation){
+		$cube = createCube($n);
+		$sum = processOperation($operation, $cube);
 		return $sum;
 	}
 
+	private function processOperation($operation,$cube){
+		$sum = array();
+		for($i = 0; $i < count($operation); $i++){
+			if(strpos($operation[$i],'UPDATE')!==false){
+				list($name, $x, $y, $z, $value) = explode(" ", $operation[$i]);
+				//$cube = update($cube, $x, $y, $z, $value);
+			}
+			if(strpos($operation[$i],'QUERY')!==false){
+				list($name, $x1, $y1, $z1, $x2, $y2, $z2) = explode(" ", $operation[$i]);
+				//array_push($sum, query($cube, $x1, $y1, $z1, $x2, $y2, $z2));
+			}
+		}
+		return $sum;
+	}
 
-
+	private function createCube($n){
+		$cube = array();
+		for($i = 0; $i <= $n; $i++){
+			for($j = 0; $j <= $n; $j++){
+				for($k = 0; $k <= $n; $k++){
+					$cube[$i][$j][$k]=0;
+				}
+			}
+		}
+		return $cube;
+	}
 }

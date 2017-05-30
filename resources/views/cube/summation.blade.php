@@ -8,8 +8,6 @@
 		<style></style>
 	</head>
 	<body>
-		<?php print_r($data); ?>
-		<?php if(isset($sum)){ ?>
 		<h3>Output:</h3>
 		<?php
 		foreach($sum as $t){
@@ -18,6 +16,5 @@
 			}
 		}
 		?>
-		<?php } ?>
 	</body>
 </html>
