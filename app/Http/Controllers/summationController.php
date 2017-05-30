@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 class summationController extends Controller
 {
     //
-	protected $sum;  
+	protected $sum;
 	
 	public function index(){
-		return view('cube.summation');
+		return view('cube.index');
 	}
 	
 	public function readInput(request $request){
@@ -27,9 +27,18 @@ class summationController extends Controller
 				$i++;
 				$a++;
 			}
-			//$this->sum[] = create_test($n,$operation);
+			$this->sum[] = createTest($n,$operation);
 		}
-		print_r($data);
-		//return $sum;
+		return view('cube.summation')->with('sum',$sum);
 	}
+
+
+	public function createTest($n,$operation){
+		$cube = create_cube($n);
+		$sum = process_operation($operation, $cube);
+		return $sum;
+	}
+
+
+
 }
