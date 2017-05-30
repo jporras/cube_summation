@@ -8,20 +8,6 @@
 		<style></style>
 	</head>
 	<body>
-		<form method="post">
-		<h3>Cube Summation</h3>
-		<table>
-			<tr>
-				<th>Input:</th>
-				<td>
-					<textarea name="input" rows="15"><?php echo isset($_POST['input'])?$_POST['input']:''; ?></textarea>
-				</td>
-			</tr>
-			<tr>
-				<td><input type="submit" name="submit" value="Send"></td>
-			</tr>
-		</table>
-		<form>
 		<?php if(isset($sum)){ ?>
 		<h3>Output:</h3>
 		<?php
