@@ -41,11 +41,28 @@ class summationController extends Controller{
 		for($i = 0; $i < count($operation); $i++){
 			if(strpos($operation[$i],'UPDATE')!==false){
 				list($name, $x, $y, $z, $value) = explode(" ", $operation[$i]);
-				//$cube = update($cube, $x, $y, $z, $value);
+				$cube = update($cube, $x, $y, $z, $value);
 			}
 			if(strpos($operation[$i],'QUERY')!==false){
 				list($name, $x1, $y1, $z1, $x2, $y2, $z2) = explode(" ", $operation[$i]);
-				//array_push($sum, query($cube, $x1, $y1, $z1, $x2, $y2, $z2));
+				array_push($sum, query($cube, $x1, $y1, $z1, $x2, $y2, $z2));
+			}
+		}
+		return $sum;
+	}
+
+	function update($cube, $x, $y, $z, $value){
+		$cube[$x][$y][$z] = $value;
+		return $cube;
+	}
+
+	function query($cube, $x1, $y1, $z1, $x2, $y2, $z2){
+		$sum = 0;
+		for($i = $x1; $i <= $x2; $i++){
+			for($j = $y1; $j <= $y2; $j++){
+				for($k = $z1; $k <= $z2; $k++){
+					$sum += $cube[$i][$j][$k];
+				}
 			}
 		}
 		return $sum;
