@@ -25,14 +25,14 @@ class summationController extends Controller{
 				$i++;
 				$a++;
 			}
-			$this->sum[] = createTest($n,$operation);
+			$this->sum[] = $this->createTest($n,$operation);
 		}
 		return view('cube.summation')->with('sum',$sum);
 	}
 
 	private function createTest($n,$operation){
-		$cube = createCube($n);
-		$sum = processOperation($operation, $cube);
+		$cube = $this->createCube($n);
+		$sum = $this->processOperation($operation, $cube);
 		return $sum;
 	}
 
@@ -41,11 +41,11 @@ class summationController extends Controller{
 		for($i = 0; $i < count($operation); $i++){
 			if(strpos($operation[$i],'UPDATE')!==false){
 				list($name, $x, $y, $z, $value) = explode(" ", $operation[$i]);
-				$cube = update($cube, $x, $y, $z, $value);
+				$cube = $this->update($cube, $x, $y, $z, $value);
 			}
 			if(strpos($operation[$i],'QUERY')!==false){
 				list($name, $x1, $y1, $z1, $x2, $y2, $z2) = explode(" ", $operation[$i]);
-				array_push($sum, query($cube, $x1, $y1, $z1, $x2, $y2, $z2));
+				array_push($sum, $this->query($cube, $x1, $y1, $z1, $x2, $y2, $z2));
 			}
 		}
 		return $sum;
