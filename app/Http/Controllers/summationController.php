@@ -27,7 +27,7 @@ class summationController extends Controller{
 			}
 			$this->sum[] = $this->createTest($n,$operation);
 		}
-		return view('cube.summation')->with('sum',$sum);
+		return view('cube.summation')->with('sum', $this->sum);
 	}
 
 	private function createTest($n,$operation){

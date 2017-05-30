@@ -16,5 +16,7 @@
 			}
 		}
 		?>
+		<br/>
+		<a href="/">Return</a>
 	</body>
 </html>
