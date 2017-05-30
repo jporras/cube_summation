@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cube.index');
 });
+Route::post('/cube/index', 'summationController@index');
+Route::post('/cube/summation', 'summationController@readInput');

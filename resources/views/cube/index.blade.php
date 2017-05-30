@@ -8,13 +8,14 @@
 		<style></style>
 	</head>
 	<body>
-		<form method="post">
 		<h3>Cube Summation</h3>
+		<form action="/cube/summation" method="post">
+		{{csrf_field()}}
 		<table>
 			<tr>
 				<th>Input:</th>
 				<td>
-					<textarea name="input" rows="15"><?php echo isset($_POST['input'])?$_POST['input']:''; ?></textarea>
+					<textarea name="input" rows="15"></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -22,15 +23,5 @@
 			</tr>
 		</table>
 		<form>
-		<?php if(isset($sum)){ ?>
-		<h3>Output:</h3>
-		<?php
-		foreach($sum as $t){
-			foreach($t as $value){
-				echo $value."<br/>";
-			}
-		}
-		?>
-		<?php } ?>
 	</body>
 </html>
