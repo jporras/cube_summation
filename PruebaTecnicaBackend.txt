@@ -1,0 +1,41 @@
+Prueba tecnica - Backend
+
+1: Mini coding challenges
+
+	De los desafios los 3 primeros quedaron en 100%
+	El ultimo desafio quedo en 42% al final debido a que se hacen mas pruebas, se pasaron las pruebas iniciales con las que carga el desafio y creo que dos mas para un total de 5/12
+	Haciendo promedio seria un 85% para esta primera parte
+
+2: Destrezas Especificas
+
+	2.1: Codind Challenge
+		
+		Se uso Github: https://github.com/jporras/cube_summation
+		Mas detalle del proceso en https://github.com/jporras/cube_summation/blob/master/README.md
+
+	2.2: Code Refactoring
+		- Linea 2 y 3 se combinaron
+		- Se eliminaron los comentarios que eran innecesarios ya que no aportan lo suficiente al codigo
+		- El if de la linea 6 se movio al else del if de la linea 9 debido a que en el ultimo if se valida otro posible valor de esa misma variable
+		- El llamado a la clase Service se repite por lo cual se combino con los parametros de entrada del array
+		- Primero se busca el conductor y con el se actualiza el servicio
+
+		- Estos cambios mejoran la cantidad de procesos realizados logrando reducir la carga en procesamiento del servidor, entre menos procesos en el servidor mas rapido se sirven las paginas al cliente.
+		Adjunto codigo en el repositorio https://github.com/jporras/cube_summation/blob/master/Codigo%20Refactorizado.php
+
+	2.3: Preguntas
+		
+		Principio de responsabilidad unica: este principio significa que cada modulo o clase debe ser responsable logicamente solo sobre una parte de la funcionalidad proporcionada por el software y esa responsabilidad debe estar encapsulada completamente solo en la clase o modulo, es decir un modulo o clase debe realizar una única cosa y todos sus servicios debe estar alineados con esa responsabilidad.
+Con este principio logramos que a futuro solo exista un motivo por el cual modificar una clase.
+
+		Codigo limpio: Desarrollar creando codigo limpio hace mas facil entender y comprender el funcionamiento de lo que creamos, siendo esto algo escencial para crear un software mantenible y escalable.
+
+			Buena indentacion para ayudar a una mejor lectura del codigo
+			Usar nombres de variables entendibles a simple vista
+			Crear funciones para reducir el numero de lineas
+			Las funciones deben hacer un proceso especifico
+			Buen uso de funciones para separar procesos repetitivos
+			Ser consistente con el uso de nombres de procedimientos en diferentes clases si se hace lo mismo
+			Comentarios deben ser sobre la intencion del proceso, alguna recomendacion o sugerencia
+			Si el codigo es entendible se reducen los comentarios
+
